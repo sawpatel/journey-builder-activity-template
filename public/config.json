@@ -1,66 +1,73 @@
 {
     "workflowApiVersion": "1.1",
     "metaData": {
-        "icon": "images/icon.png",
+		"icon": "images/icon.png",
         "iconSmall": "images/iconSmall.png",
         "category": "message"
     },
     "type": "REST",
     "lang": {
         "en-US": {
-            "name": "Template",
-          "description": "A Template for a custom Journey Builder activity",
-          "step1Label": "Configure Activity"
+			"name": "Promo Code API",
+			"description": "POC to get Promo Code for a custom Journey Builder activity",
+			"step1Label": "Configure Activity"
         }
     },
     "arguments": {
         "execute": {
-           "inArguments":[
-				{
-                    "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}"
-                }									
-			],
-          "outArguments": [],
-          "url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/execute",
-           "verb": "POST",
-            "body": "",
-            "header": "",
-            "format": "json",
-            "useJwt": true,
-            "timeout": 10000
+			"inArguments": [
+                {
+                    "emailAddress": "{{InteractionDefaults.Email}}"
+                },
+                {
+                    "phoneNumber": "{{Contact.Default.PhoneNumber}}"
+                }
+            ],
+            "outArguments": [
+                {
+                    "foundSignupDate": ""
+                }
+            ],
+			"url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/execute",
+			"verb": "POST",
+			"body": "",
+			"header": "",
+			"format": "json",
+			"useJwt": true,
+			"timeout": 10000
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "8910cb04-9b05-4134-8efe-526998cbbf34",
-      "save": {
-        "url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/save",
-          "verb": "POST",
-        "useJwt": true
-       },
-       "publish": {
-        "url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/publish",
-           "verb": "POST",
-        "useJwt": true
-       },
-      "stop": {
-        "url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/stop",
-           "verb": "POST",
-        "useJwt": true
-      },
-      "validate": {
-        "url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/validate",
-        "verb": "POST",
-        "useJwt": true
-      }
+		"applicationExtensionKey": "8910cb04-9b05-4134-8efe-526998cbbf34",
+		"save": {
+			"url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/save",
+			"verb": "POST",
+			"useJwt": true
+		},
+		"publish": {
+			"url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/publish",
+			"verb": "POST",
+			"useJwt": true
+		},
+		"stop": {
+			"url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/stop",
+			"verb": "POST",
+			"useJwt": true
+		},
+		"validate": {
+			"url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/validate",
+			"verb": "POST",
+			"useJwt": true
+		}
     },
     "wizardSteps": [
         { "label": "Configure Activity", "key": "step1" }
     ],
     "userInterfaces": {
         "configModal": {
-            "height": 400,
+			"height": 400,
             "width": 1000,
-          "fullscreen": false
+			"fullscreen": false
         }
     },
     "schema": {
