@@ -3,7 +3,7 @@ var util = require('util');
 
 // Deps
 //const Path = require('path');
-const JWT = require('./lib/jwtDecoder.js');
+//const JWT = require('./lib/jwtDecoder.js');
 var util = require('util');
 var http = require('https');
 var request = require('request');
@@ -119,6 +119,16 @@ exports.validate = function (req, res) {
     //console.log( req.body );
     logData(req);
     res.send(200, 'Validate');
+};
+
+function JWT(body, secret, cb) {
+	if (!body) {
+		return cb(new Error('invalid jwtdata'));
+	}
+
+	require('jsonwebtoken').verify(body.toString('utf8'), secret, {
+		algorithm: 'HS256'
+	}, cb);
 };
 
 function GetPromoCode() {
