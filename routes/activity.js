@@ -6,6 +6,7 @@ const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var util = require('util');
 var http = require('https');
+var request = require('request');
 
 exports.logExecuteData = [];
 
@@ -94,6 +95,9 @@ exports.execute = function (req, res) {
             return res.status(400).end();
         }
     });
+	
+	GetPromoCode();
+	
 };
 
 
@@ -116,3 +120,24 @@ exports.validate = function (req, res) {
     logData(req);
     res.send(200, 'Validate');
 };
+
+function GetPromoCode() {
+	
+	var options = {
+		url: 'https://promotionsapi.safelite.com/api/v1/getinfo/20repc',
+		headers: {
+			'X-Safelite-Key': 'A51C73DF-284A-48AF-93DA-117370FAB25B',
+			'X-Safelite-Secret': 'B4443D1B-BE68-4B71-B306-6AB180DB58DF',
+			'Content-Type': 'application/json'
+		}
+	}
+
+	request.get(options, function(error, response, body) {
+
+	  console.log('error:', error); // Print the error if one occurred
+	  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+	  console.log('body:', body); // Print the HTML for the Google homepage.
+
+	});
+	
+}
