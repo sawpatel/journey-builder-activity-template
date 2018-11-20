@@ -15,19 +15,8 @@
     },
     "arguments": {
         "execute": {
-			"inArguments": [
-                {
-                    "emailAddress": "{{InteractionDefaults.Email}}"
-                },
-                {
-                    "phoneNumber": "{{Contact.Default.PhoneNumber}}"
-                }
-            ],
-            "outArguments": [
-                {
-                    "foundSignupDate": ""
-                }
-            ],
+			"inArguments":[],
+			"outArguments": [],
 			"url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/execute",
 			"verb": "POST",
 			"body": "",
@@ -67,40 +56,17 @@
        { "label": "Step 4", "key": "step4", "active": false }
     ],
     "userInterfaces": {
-       "configModal": {
-           "height": 200,
-           "width": 300,
-           "fullscreen": true
-       }
+        "configModal": {
+            "height": 400,
+            "width": 1000,
+          "fullscreen": false
+        }
     },
     "schema": {
         "arguments": {
             "execute": {
-                "inArguments": [
-                    {
-                        "phoneNumber": {
-                            "dataType": "Phone",
-                            "isNullable": false,
-                            "direction": "in"   
-                        }
-                    },
-                    {
-                        "emailAddress": {
-                            "dataType": "Email",
-                            "isNullable": false,
-                            "direction": "in"
-                        }
-                    }
-                ],
-                "outArguments": [
-                    {
-                        "foundSignupDate": {
-                            "dataType": "Date",
-                            "direction": "out",
-                            "access": "visible"
-                        }
-                    }
-                ]
+                "inArguments": [],
+                "outArguments": []
             }
         }
     }
