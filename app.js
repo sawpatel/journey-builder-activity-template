@@ -8,9 +8,6 @@ var http        = require('http');
 var path        = require('path');
 var request     = require('request');
 var routes      = require('./routes');
-var activityCreate   = require('./routes/activityCreate');
-var activityUpdate   = require('./routes/activityUpdate');
-var activityUtils    = require('./routes/activityUtils');
 var activity    = require('./routes/activity');
 var pkgjson = require( './package.json' );
 
