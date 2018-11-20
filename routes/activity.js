@@ -2,8 +2,8 @@
 var util = require('util');
 
 // Deps
-const Path = require('path');
-const JWT = require(Path.join(process.env.dirPath, 'lib', 'jwtDecoder.js'));
+//const Path = require('path');
+const JWT = require(__dirname + '/lib/jwtDecoder.js'));
 var util = require('util');
 var http = require('https');
 var request = require('request');

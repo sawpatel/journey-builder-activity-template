@@ -20,7 +20,7 @@ app.use(bodyParser.raw({type: 'application/jwt'}));
 //app.use(express.methodOverride());
 //app.use(express.favicon());
 
-app.use(express.static(path.join(process.env.dirPath, 'public')));
+app.use(express.static(__dirname + '/public')));
 
 // Express in Development Mode
 if ('development' == app.get('env')) {
