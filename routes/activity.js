@@ -94,15 +94,16 @@ exports.execute = function (req, res) {
             
             logData(req);
             //res.send(200, 'Execute');
-			
 			GetPromoCode();
-			
 			res.status(200).send('Execute');
         } else {
             console.error('inArguments invalid.');
             return res.status(400).end();
         }
     });
+	
+
+	
 };
 
 
@@ -127,6 +128,16 @@ exports.validate = function (req, res) {
     //res.send(200, 'Validate');
 	res.status(200).send('Validate');
 };
+
+/*function JWT(body, secret, cb) {
+	if (!body) {
+		return cb(new Error('invalid jwtdata'));
+	}
+
+	require('jsonwebtoken').verify(body.toString('utf8'), secret, {
+		algorithm: 'HS256'
+	}, cb);
+};*/
 
 function GetPromoCode() {
 
