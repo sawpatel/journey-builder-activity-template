@@ -101,7 +101,7 @@ exports.execute = function (req, res) {
         }
     });
 	
-	GetPromoCode(req, res);
+	GetPromoCode();
 	
 };
 
@@ -128,20 +128,7 @@ exports.validate = function (req, res) {
 	res.status(200).send('Validate');
 };
 
-function GetPromoCode(req, res) {
-
-	/*
-	Search for email address
-	*/
-
-	//merge the array of objects.
-	var aArgs = req.body.inArguments;
-	var oArgs = {};
-	for (var i=0; i<aArgs.length; i++) {  
-		for (var key in aArgs[i]) { 
-			oArgs[key] = aArgs[i][key]; 
-		}
-	}
+function GetPromoCode() {
 
 	var email = oArgs.emailAddress;
 

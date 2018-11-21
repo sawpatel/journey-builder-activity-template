@@ -20,11 +20,7 @@
 					"emailAddress": "{{Contact.Default.Email}}"
 				}	
 			],
-			"outArguments": "outArguments": [
-            	{ 
-					"PromoCode":"String" 
-				}
-			],
+			"outArguments": "outArguments": [],
 			"url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/execute",
 			"verb": "POST",
 			"body": "",
@@ -64,28 +60,4 @@
           "fullscreen": false
         }
     },
-	"schema": {
-        "arguments": {
-            "execute": {
-                "inArguments": [
-                    {
-                        "emailAddress": {
-                            "dataType": "Email",
-                            "isNullable": false,
-                            "direction": "in"
-                        }
-                    }
-                ],
-                "outArguments": [
-                    {
-                        "PromoCode": {
-                            "dataType": "String",
-                            "direction": "out",
-                            "access": "visible"
-                        }
-                    }
-                ]
-            }
-        }
-    }
 }
