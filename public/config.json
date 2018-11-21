@@ -16,11 +16,11 @@
     "arguments": {
         "execute": {
 			"inArguments":[
-				{ 
-					"emailAddress": "{{Contact.Default.Email}}"
-				}	
+				{
+                    "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}"
+                }	
 			],
-			"outArguments": "outArguments": [],
+			"outArguments": [],
 			"url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/execute",
 			"verb": "POST",
 			"body": "",
@@ -53,11 +53,25 @@
 			"useJwt": true
 		}
     },
+    "wizardSteps": [
+       { "label": "Step 1", "key": "step1" },
+       { "label": "Step 2", "key": "step2" },
+       { "label": "Step 3", "key": "step3" },
+       { "label": "Step 4", "key": "step4", "active": false }
+    ],
     "userInterfaces": {
         "configModal": {
             "height": 400,
             "width": 1000,
           "fullscreen": false
+        }
+    },
+    "schema": {
+        "arguments": {
+            "execute": {
+                "inArguments": [],
+                "outArguments": []
+            }
         }
     }
 }
