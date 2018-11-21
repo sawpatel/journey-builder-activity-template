@@ -16,11 +16,15 @@
     "arguments": {
         "execute": {
 			"inArguments":[
-				{
-                    "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}"
-                }	
+				{ 
+					"emailAddress": "{{Contact.Default.Email}}"
+				}	
 			],
-			"outArguments": [],
+			"outArguments": "outArguments": [
+            	{ 
+					"PromoCode":"String" 
+				}
+			],
 			"url": "https://journeybuilderactivitytest.herokuapp.com/journeybuilder/execute",
 			"verb": "POST",
 			"body": "",
@@ -53,12 +57,6 @@
 			"useJwt": true
 		}
     },
-    "wizardSteps": [
-       { "label": "Step 1", "key": "step1" },
-       { "label": "Step 2", "key": "step2" },
-       { "label": "Step 3", "key": "step3" },
-       { "label": "Step 4", "key": "step4", "active": false }
-    ],
     "userInterfaces": {
         "configModal": {
             "height": 400,
@@ -66,11 +64,27 @@
           "fullscreen": false
         }
     },
-    "schema": {
+	"schema": {
         "arguments": {
             "execute": {
-                "inArguments": [],
-                "outArguments": []
+                "inArguments": [
+                    {
+                        "emailAddress": {
+                            "dataType": "Email",
+                            "isNullable": false,
+                            "direction": "in"
+                        }
+                    }
+                ],
+                "outArguments": [
+                    {
+                        "PromoCode": {
+                            "dataType": "String",
+                            "direction": "out",
+                            "access": "visible"
+                        }
+                    }
+                ]
             }
         }
     }

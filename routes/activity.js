@@ -94,7 +94,6 @@ exports.execute = function (req, res) {
             
             logData(req);
             //res.send(200, 'Execute');
-			GetPromoCode();
 			res.status(200).send('Execute');
         } else {
             console.error('inArguments invalid.');
@@ -102,7 +101,7 @@ exports.execute = function (req, res) {
         }
     });
 	
-
+	GetPromoCode(req, res);
 	
 };
 
@@ -129,17 +128,22 @@ exports.validate = function (req, res) {
 	res.status(200).send('Validate');
 };
 
-/*function JWT(body, secret, cb) {
-	if (!body) {
-		return cb(new Error('invalid jwtdata'));
+function GetPromoCode(req, res) {
+
+	/*
+	Search for email address
+	*/
+
+	//merge the array of objects.
+	var aArgs = req.body.inArguments;
+	var oArgs = {};
+	for (var i=0; i<aArgs.length; i++) {  
+		for (var key in aArgs[i]) { 
+			oArgs[key] = aArgs[i][key]; 
+		}
 	}
 
-	require('jsonwebtoken').verify(body.toString('utf8'), secret, {
-		algorithm: 'HS256'
-	}, cb);
-};*/
-
-function GetPromoCode() {
+	var email = oArgs.emailAddress;
 
 	var options = { 
 		method: 'POST',
