@@ -130,8 +130,6 @@ exports.validate = function (req, res) {
 
 function GetPromoCode() {
 
-	var email = oArgs.emailAddress;
-
 	var options = { 
 		method: 'POST',
 		url: 'https://promotionsapidev.safelite.com/api/v1/generatecode',
