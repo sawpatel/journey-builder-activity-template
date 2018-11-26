@@ -125,19 +125,9 @@ exports.validate = function (req, res) {
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
     logData(req);
-    //res.send(200, 'Validate');
+	//res.send(200, 'Validate');
 	res.status(200).send('Validate');
 };
-
-/*function JWT(body, secret, cb) {
-	if (!body) {
-		return cb(new Error('invalid jwtdata'));
-	}
-
-	require('jsonwebtoken').verify(body.toString('utf8'), secret, {
-		algorithm: 'HS256'
-	}, cb);
-};*/
 
 function getPromoCode(req, res) {
 
