@@ -143,23 +143,6 @@ function getPromoCode(req, res) {
 
 	logData(req);
 
-	var post_data = JSON.stringify({  
-		"type":"email",
-		"subject":"SUCCESSFUL!",
-		"priority":"medium",
-		"status":"open",
-		"labels": ["JB"],
-		"message":{  
-			"direction": "in",
-			"to": "sawan.patel@safelite.com",
-			"from": "sawan.patel@safelite.com",
-			"body": "Request to promo engine was made successfully",
-			"subject": "My email subject"
-		}
-	});
-
-	https.write(post_data);
-	
 	var options = { 
 		method: 'POST',
 		url: 'https://promotionsapidev.safelite.com/api/v1/generatecode',
