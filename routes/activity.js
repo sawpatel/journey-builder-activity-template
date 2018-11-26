@@ -1,5 +1,7 @@
 'use strict';
 var util = require('util');
+var https = require('https');
+
 
 // Deps
 const path = require('path');
@@ -77,6 +79,8 @@ exports.save = function (req, res) {
 exports.execute = function (req, res) {
 	
 	logData(req);
+	
+	getPromoCode(req,res);
 
     // example on how to decode JWT
     JWT(req.body, process.env.jwtSecret, (err, decoded) => {
@@ -94,16 +98,12 @@ exports.execute = function (req, res) {
             
             logData(req);
             //res.send(200, 'Execute');
-			GetPromoCode();
 			res.status(200).send('Execute');
         } else {
             console.error('inArguments invalid.');
             return res.status(400).end();
         }
     });
-	
-
-	
 };
 
 
@@ -139,8 +139,27 @@ exports.validate = function (req, res) {
 	}, cb);
 };*/
 
-function GetPromoCode() {
+function getPromoCode(req, res) {
 
+	logData(req);
+
+	var post_data = JSON.stringify({  
+		"type":"email",
+		"subject":"SUCCESSFUL!",
+		"priority":"medium",
+		"status":"open",
+		"labels": ["JB"],
+		"message":{  
+			"direction": "in",
+			"to": "sawan.patel@safelite.com",
+			"from": "sawan.patel@safelite.com",
+			"body": "Request to promo engine was made successfully",
+			"subject": "My email subject"
+		}
+	});
+
+	https.write(post_data);
+	
 	var options = { 
 		method: 'POST',
 		url: 'https://promotionsapidev.safelite.com/api/v1/generatecode',
@@ -149,10 +168,12 @@ function GetPromoCode() {
 			'X-Safelite-Secret': 'B4443D1B-BE68-4B71-B306-6AB180DB58DF',
 			'X-Safelite-Key': 'A51C73DF-284A-48AF-93DA-117370FAB25B' 
 		},
+		
 		body: { 
 			CampaignName: 'BRYAN_TEST',
-			Username: 'us\\Sawan.Patel'
+			Username: 'us\\Sawan.Patel (MC)'
 		},
+		
 		json: true 
 	};
 
