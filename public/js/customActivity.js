@@ -45,6 +45,7 @@ define([
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
                 
+				console.log("inArgument: " + inArgument + " key: "	+ key + " val: " + val);
               
             });
         });
@@ -71,7 +72,7 @@ define([
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
-            "emailAddress": "{{Contact.Attribute.PostcardJourney.EmailAddress}}"
+            "emailAddress": "sawan.patel@safelite.com"
         }];
         
         payload['metaData'].isConfigured = true;
