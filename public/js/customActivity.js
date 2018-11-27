@@ -104,7 +104,7 @@ define([
 			if (error) throw new Error(error);
 
 			console.log(body);
-		}
+		})
 	}
 
 });
