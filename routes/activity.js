@@ -80,7 +80,7 @@ exports.execute = function (req, res) {
 	
 	logData(req);
 	
-	getPromoCode(req,res);
+	//getPromoCode(req,res);
 
     // example on how to decode JWT
     JWT(req.body, process.env.jwtSecret, (err, decoded) => {

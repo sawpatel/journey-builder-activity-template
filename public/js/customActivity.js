@@ -81,5 +81,30 @@ define([
         connection.trigger('updateActivity', payload);
     }
 
+	function getPromoCode() {
+
+		var options = { 
+			method: 'POST',
+			url: 'https://promotionsapidev.safelite.com/api/v1/generatecode',
+			headers: { 
+				'Content-Type': 'application/json',
+				'X-Safelite-Secret': 'B4443D1B-BE68-4B71-B306-6AB180DB58DF',
+				'X-Safelite-Key': 'A51C73DF-284A-48AF-93DA-117370FAB25B' 
+			},
+			
+			body: { 
+				CampaignName: 'BRYAN_TEST',
+				Username: 'us\\Sawan.Patel (MC)'
+			},
+			
+			json: true 
+		}
+
+		request(options, function (error, response, body) {
+			if (error) throw new Error(error);
+
+			console.log(body);
+		}
+	}
 
 });
