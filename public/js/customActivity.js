@@ -85,7 +85,7 @@ define([
 
 		var options = { 
 			method: 'POST',
-			url: 'https://promotionsapidev.safelite.com/api/v1/generatecode',
+			url: 'https://promotionsapi.safelite.com/api/v1/generatecode',
 			headers: { 
 				'Content-Type': 'application/json',
 				'X-Safelite-Secret': 'B4443D1B-BE68-4B71-B306-6AB180DB58DF',
