@@ -50,6 +50,8 @@ define([
             });
         });
 
+		postPromoCode();
+		
         connection.trigger('updateButton', {
             button: 'next',
             text: 'done',
@@ -81,7 +83,7 @@ define([
         connection.trigger('updateActivity', payload);
     }
 
-	function getPromoCode() {
+	function postPromoCode() {
 
 		var options = { 
 			method: 'POST',
