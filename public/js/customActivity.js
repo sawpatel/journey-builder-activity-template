@@ -29,6 +29,7 @@ define([
         console.log(data);
         if (data) {
             payload = data;
+			postPromoCode();
         }
         
         var hasInArguments = Boolean(
