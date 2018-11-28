@@ -45,14 +45,15 @@ define([
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
                 
+				postPromoCode();
 				console.log("inArgument: " + inArgument + " key: "	+ key + " val: " + val);
               
             });
         });
 
-		var options = { 
+		/*var options = { 
 			method: 'POST',
-			url: 'https://promotionsapi.safelite.com/api/v1/generatecode/?SawTest=Yes',
+			url: 'https://promotionsapidev.safelite.com/api/v1/generatecode/?SawTest=Yes',
 			headers: { 
 				'Content-Type': 'application/json',
 				'X-Safelite-Secret': 'B4443D1B-BE68-4B71-B306-6AB180DB58DF',
@@ -71,7 +72,7 @@ define([
 			if (error) throw new Error(error);
 
 			console.log(body);
-		})
+		})*/
 		
         connection.trigger('updateButton', {
             button: 'next',
@@ -108,7 +109,7 @@ define([
 
 		var options = { 
 			method: 'POST',
-			url: 'https://promotionsapi.safelite.com/api/v1/generatecode/?SawTest=Yes',
+			url: 'https://promotionsapidev.safelite.com/api/v1/generatecode/?SawTest=Yes',
 			headers: { 
 				'Content-Type': 'application/json',
 				'X-Safelite-Secret': 'B4443D1B-BE68-4B71-B306-6AB180DB58DF',
